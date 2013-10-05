@@ -14,6 +14,7 @@ if ':' in DBNAME:
 else:
     DBNAME+='/'
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -111,6 +112,7 @@ ROOT_URLCONF = 'governmaid.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'governmaid.wsgi.application'
+
 
 TEMPLATE_DIRS = (
     os.getcwd()+'/templates'
