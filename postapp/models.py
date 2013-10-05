@@ -1,4 +1,4 @@
 from django.db import models
 
-class Post(models.Model)
+class Post(models.Model):
 	score = models.IntegerField()
