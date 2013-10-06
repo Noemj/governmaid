@@ -10,12 +10,12 @@ def home(request, *args, **kwargs):
     return render(request, kwargs['template'],{'extension':'template.html'})
 
 @login_required
-def hello(request, **kwarg):
-	return HttpResponse("Welcome, "+request.user.username+"!<br /><a href='/logout'>Logout</a>)"
+def hello(request, **kwargs):
+	return HttpResponse("Welcome, "+request.user.username+"!<br /><a href='/logout'>Logout</a>)")
 
 def logout(request):
-    auth.logout(request)
-    return HttpResponseRedirect("/")
+	auth.logout(request)
+	return HttpResponseRedirect('/')
 
 
 def login(request, **kwargs):
@@ -26,6 +26,6 @@ def login(request, **kwargs):
 		password=request.POST['password']
 		user = auth.authenticate(username=username, password=password)
 		auth.login(request, user)
-		return HttpResponse('/hello')
+		return HttpResponseRedirect('/hello')
 	else:
 		return render(request, kwargs['template'],{'extension':'template.html'})
