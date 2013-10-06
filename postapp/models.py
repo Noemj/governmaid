@@ -6,6 +6,7 @@ def file_name(instance, filename):
     return 'postpics/'+instance.pk+"/profile.jpg"
 
 class Post(models.Model):
+	title = models.CharField(max_length=100,default="")
 	city = models.ForeignKey('cityapp.City',related_name='posts')
 	user = models.ForeignKey(User,related_name='posts')
 	score = models.IntegerField(default=0)

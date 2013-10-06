@@ -16,8 +16,8 @@ def process_create_post(request, *args, **kwargs):
 		city = City.get_object(name=request.POST['city'])
     	post = Post(content=request.POST['content'],user=request.user,city=request.POST['city'],picture=request.FILES['picture'])
     	post.save()
-    	return render(request, 'post.html',{'post':post})
-    return HttpResponseRedirect('/')
+		return render(request, 'post.html',{'post':post})
+	return HttpResponseRedirect('/')
 
 def process_create_comment(request, *args, **kwargs):
 	if request.method == 'POST':
