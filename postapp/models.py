@@ -14,8 +14,6 @@ class Post(models.Model):
 	content = models.TextField(max_length=1000, blank=False, null=False)
 
 	
-
-	
 class Vote(models.Model):
 	user = models.ForeignKey(User,related_name='votes')
 	vote = models.BooleanField()
