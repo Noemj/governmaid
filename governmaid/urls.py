@@ -22,4 +22,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^city/$', 'governmaid.views.home', {'template':'posts_for_town.html'}),
+    url(r'^post/(?P<pk>)[0-9]+$', 'governmaid.views.home', {'template':'post_thread.html'}),
 )
