@@ -44,21 +44,31 @@
   {% include "navbar_login.html" %}
   <hr>
         <div class="row-fluid">
-        		<div class="span5 offset1" style='background:pink'>
+        		<div class="span5 offset1">
               {% load staticfiles %}
-              <img class="img-circle" src="{% static 'img/golden_gate_bridge.jpg' %}" alt="Golden Gate Bridge"/>
+              <img class="img-circle" src="{% static 'img/mit_dome_night.jpg' %}" alt="MIT Dome Night" style="margin-top:20px"/>
             </div>
-            <div class="span4 offset1">
-              <br><br><br><br><br>
-        			<strong><span style="font-size:44pt; font-family:'Monotype Corsiva','Apple Chancery','ITC Zapf Chancery','URW Chancery L',cursive;">Ideas for {{post.city}} Cambridge, MA</strong></span>
+            <div class="span6">
+              <div>
+              <br><br><br><br>
+              <center>
+        			<strong><span style="font-size:44pt; font-family:'font-family:'Century Gothic',futura,'URW Gothic L',Verdana,sans-serif;">{{post.city}} Cambridge, MA</strong></span><br><br>
+
+              <p style="font-size:large; font-family:'font-family:'Century Gothic',futura,'URW Gothic L',Verdana,sans-serif; color:gray"><strong>
+              Mayor: Henrietta Davis <br><br>
+              Users: 314159 <br><br>
+              Ideas: 27182<br><br></p></strong>
+            </div>
+            <div class="span6 offset3">
+              <a href="/post" class="btn btn-primary btn-large btn-block" type="button" >Submit Idea<br></a>
+            </div>
         		</center>
           </div>
         </div>
 
-
+        <br><br><br>
         	<center>
 			<div class="btn-group">
-        <a href="/post" class="btn btn-primary btn-large">Submit idea<br></a>
         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
     		Sort By
     		<span class="caret"></span>
