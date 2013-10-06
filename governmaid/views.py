@@ -11,7 +11,7 @@ def home(request, *args, **kwargs):
 
 @login_required
 def hello(request, **kwargs):
-	return HttpResponse("Welcome, "+request.user.username+"!<br /><a href='/logout'>Logout</a>)")
+	return HttpResponse("Welcome, "+request.user.username+"!<br /><a href='/logout'>Logout</a>")
 
 def logout(request):
 	auth.logout(request)
