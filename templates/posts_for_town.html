@@ -33,11 +33,30 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  <script>
+  $("#upvote").click(function(){
+    $.ajax({
+        type: "POST",
+        url: '/post/vote/',  // or just url: "/my-url/path/"
+        data: {
+            csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
+            vote_status: 1,
+            post_pk: $("#pk_div_{{num}}").val(),
+        },
+        success: function(response) {
+            $(".compose-msg").fadeOut(500, function() {
+              $(this).html("<div class='span6 offset6 text-center' style='font-size:large;color:lightblue;'>"+response+"</div>").fadeIn(500);
+              });
+        }
+    });
+  });
+  </script>
+
   {% endblock %}
 
   {% block body %}
@@ -85,9 +104,9 @@
       		<div class="span1 offset3">
       			<center>
       			{% load staticfiles %}
-      			<img src="{% static 'img/blueUpArrow.png' %}" alt="Blue Up Arrow" width="50%" height="50%" style="display: block; margin-left:auto; margin-right:auto;"/>
+      			<img id="upvote" src="{% static 'img/blueUpArrow.png' %}" alt="Blue Up Arrow" width="50%" height="50%" style="display: block; margin-left:auto; margin-right:auto;" pk="{{ post.pk }}"/>
       			SCORE<br>
-      			<img src="{% static 'img/blueDownArrow.png' %}" alt="Blue Down Arrow" width="50%" height="50%" style="display: block; margin-left:auto; margin-right:auto;"/><br>
+      			<img id="downvote" src="{% static 'img/blueDownArrow.png' %}" alt="Blue Down Arrow" width="50%" height="50%" style="display: block; margin-left:auto; margin-right:auto;" pk="{{ post.pk }}"/><br>
       			</center>
       		</div>
         	<div class="span5">
