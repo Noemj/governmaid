@@ -12,9 +12,6 @@ class Post(models.Model):
 	picture = models.ImageField(upload_to=file_name, max_length=200, blank=True, null=True)
 	resolved = models.BooleanField(default=False) 
 	content = models.TextField(max_length=1000, blank=False, null=False)
-
-	
-
 	
 class Vote(models.Model):
 	user = models.ForeignKey(User,related_name='votes')
@@ -23,7 +20,6 @@ class Vote(models.Model):
 class Comment(models.Model):
 	post = models.ForeignKey(Post,related_name='comments')
 	content = models.TextField(max_length=1000, blank=False, null=False)
-
 
 admin.site.register(Comment)
 admin.site.register(Vote)
