@@ -1,10 +1,9 @@
-from django.http import HttpResponse, Http404
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import REDIRECT_FIELD_NAME, authenticate
 from django.http import HttpResponseRedirect
-from django.contrib import auth
-
+from django.http import HttpResponse, Http404
+from django.shortcuts import render, redirect, get_object_or_404
 
 def home(request, *args, **kwargs):
     return render(request, kwargs['template'],{'extension':'template.html'})
@@ -17,7 +16,6 @@ def logout(request):
 	auth.logout(request)
 	return HttpResponseRedirect('/')
 
-
 def login(request, **kwargs):
 	if request.user.is_authenticated():
 		return HttpResponseRedirect('/hello')
@@ -29,3 +27,4 @@ def login(request, **kwargs):
 		return HttpResponseRedirect('/hello')
 	else:
 		return render(request, kwargs['template'],{'extension':'template.html'})
+		
