@@ -45,6 +45,25 @@
       .marketing p + h4 {
         margin-top: 28px;
       }
+
+	  .Absolute-Center {
+  		margin: auto;
+  		position: absolute;
+  		top: 0; left: 0; bottom: 0; right: 0;
+	  }
+ 
+	   .Container{
+	    position: absolute;
+  		width:300px;
+  		height: 300px;
+  		background-color:#445;
+  		color: #CCC;
+  		font-family: "Verdana" Sans-Serif;
+  		font-size: 14pt;
+  		border:solid 2px #222;
+  		border-radius:5px; 
+	  }
+
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -74,15 +93,55 @@
       	</div>
 
       	<hr>
+      		<div>
+        		<center>
+        			<h1>Ideas for {{post.city}}</h1>
+        		</center>
+        	</div>
+
+        	<center>
+			<div class="btn-group">
+  			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    		Sort By
+    		<span class="caret"></span>
+  			</a>
+  			<ul class="dropdown-menu">
+    		<li>Most Recent</li>
+  			<li>Most Liked</li>
+  			</ul>
+			</div>
+
+			<div class="btn-group">
+  			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    		Display Count
+    		<span class="caret"></span>
+  			</a>
+  			<ul class="dropdown-menu">
+    		<li>10</li>
+  			<li>25</li>
+  			<li>50</li>
+  			</ul>
+			</div>
+			</center>
+
+			<br>
+			<br>
 
       	<div class="row-fluid">
-        	<div class="span4 offset4">
-        		<center>
-        			<h1>Ideas</h1>
-        		</center>
-        	Post on November 13, 1993.
-        	<p class="lead">My kid almost got ran over while playing kickball.</p>
-        	by <strong>Eric Ruleman</strong><br>
+      		<div class="span1 offset3">
+      			<center>
+      			{% load staticfiles %}
+      			<img src="{% static 'img/blueUpArrow.png' %}" alt="Blue Up Arrow" width="50%" height="50%" style="display: block; margin-left:auto; margin-right:auto;"/>
+      			SCORE<br>
+      			<img src="{% static 'img/blueDownArrow.png' %}" alt="Blue Down Arrow" width="50%" height="50%" style="display: block; margin-left:auto; margin-right:auto;"/><br>
+      			</center>
+      		</div>
+        	<div class="span5">
+        	<span style="color:gray">Posted on November 13, 1993.</span>
+
+        	<p style="font-size:x-large;color:DarkBlue !important;"><a style="color: DarkBlue !important;" href='/post/{{post.pk}}'><strong>Blind Corner on 54th Street</strong></a></p>
+        	My kid almost got ran over while playing kickball. He was with Jimmy and Bobby, and then all the sudden a big SUV swarmed my poor little big boy! We must put a mirror up on this corner immediately!<br>
+        	<p align="right">by <strong>Eric Ruleman</strong></p><br>
         	<hr>
         	</div>
         </div>

@@ -61,8 +61,7 @@
   {% endblock %}
 
   {% block body %}
-
-    <div class="container-narrow">
+  <div class="container-narrow" >
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
@@ -70,53 +69,48 @@
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
-        <h3 class="muted">Project name</h3>
+        <h4 class="muted"></h4>
       </div>
 
-      <hr>
+      
 
       <div class="jumbotron">
-        <center>
-        <h1>Welcome to Governmaid!</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <a class="btn btn-large btn-success" href="#">Sign up today</a>
-      </center>
-      </div>
+       
+       
+  <!-- /.carousel-inner -->
+  <!--  Next and Previous controls below
+        href values must reference the id for this carousel -->
+    
+</div>
+        
+        
+        
 
-      {% load staticfiles %}
-      <img src="{% static 'img/cityhall.jpg' %}" alt="My image" style="display: block; margin-left:auto; margin-right:auto;"/>
+        <h1><center>Welcome to GovernMaid!</center></h1>
 
-      <hr>
+        
+        
 
-      <div class="row-fluid marketing">
-        <div class="span6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+        
+       <center>
+        
+        <h3>Get Started</h3>
+         <input type="text" data-provide="typeahead" data-items="2" autocomplete="off"
+         data-source='["Chicago","New York","Boston","San Fransisco"]'><br></input><!-- Get the city Source -->
+        <a href="#" class="btn btn-primary btn-large">Submit<br></a>
+       
+       </center>
+       
+     
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
+     
 
-        <div class="span6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+      
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+      
 
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="footer">
-        <p>&copy; Company 2013</p>
-      </div>
+      <div class="navbar navbar-fixed-bottom" align="right"> <p class="muted credit">GovernAid</p></div>
 
     </div> <!-- /container -->
 
@@ -138,5 +132,6 @@
     <script src="../assets/js/bootstrap-collapse.js"></script>
     <script src="../assets/js/bootstrap-carousel.js"></script>
     <script src="../assets/js/bootstrap-typeahead.js"></script>
+    
 
   {% endblock %}

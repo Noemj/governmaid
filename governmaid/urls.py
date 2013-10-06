@@ -7,11 +7,12 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'governmaid.views.home', {'template':'open.html'}),
+
+    url(r'^landing$', 'governmaid.views.home', {'template':'landing.html'}),
     url(r'^hello/$', 'governmaid.views.hello', {'template':'hello.html'}),
     url(r'^login/$', 'governmaid.views.login', {'template':'login.html'}),
     url(r'^logout/$', 'governmaid.views.logout'),
-    url(r'^process_create/$', 'postapp.views.process_create'),
-
+    url(r'^process_create_post/$', 'postapp.views.process_create_post'),
     #url(r'^governmaid/', include('governmaid.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
