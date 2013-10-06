@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-#from PIL import Image
 
 def file_name(instance, filename):
     return 'postpics/'+instance.pk+"profile.jpg"
