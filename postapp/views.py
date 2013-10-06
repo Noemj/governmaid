@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse, Http404
 from postapp.models import Post
+from postapp.models import Vote
 
 def create(request, *args, **kwargs):
 	return render(request, 'create_post.html',{'extension':'template.html'})
@@ -15,3 +16,20 @@ def process_create(request, *args, **kwargs):
     	post.save()
     	return render(request, 'post.html',{'post':post})
     return HttpResponseRedirect('/')
+
+def vote(request, *args, **kwargs):
+	if request.METHOD=='POST' and request.is_ajax():
+		user = request.user
+		pk = request.POST['post_pk']		
+		vote_value = request.POST['vote_value']
+		post = Post.objects.get(pk=pk)
+		post += vote_value
+		post.save()
+		vote = Vote(user=user, post=post, vote=vote_status)
+		vote.save()
+		return "Success"
+	else:
+		return "Error"
+		
+
+
