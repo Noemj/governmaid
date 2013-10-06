@@ -15,11 +15,7 @@ def process_create_post(request, *args, **kwargs):
 		city = City.objects.get(name=request.POST['city'])
     	post = Post(content=request.POST['content'],user=request.user,city=request.POST['city'],picture=request.FILES['picture'])
     	post.save()
-<<<<<<< HEAD
 		return render(request, 'post.html',{'post':post})
-=======
-    	return render(request, 'post.html',{'post':post})
->>>>>>> 8bca2c05c00ddcf75072e1d6223784afcfc9adab
 	return HttpResponseRedirect('/')
 
 def process_create_comment(request, *args, **kwargs):
