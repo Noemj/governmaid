@@ -13,9 +13,10 @@ def create_comment(request, *args, **kwargs):
 def process_create_post(request, *args, **kwargs):
 	if request.method == 'POST':
 		city = City.objects.get(name=request.POST['city'])
-    	post = Post(content=request.POST['content'],user=request.user,city=request.POST['city'],picture=request.FILES['picture'])
-    	post.save()
-    	return render(request, 'post.html',{'post':post})
+		post = Post(content=request.POST['content'],user=request.user,city=City.objects.get(name=request.POST['city']))#,picture=request.FILES['picture'])
+		post.save()
+		return render(request, 'post.html',{'post':post})
+
 	return HttpResponseRedirect('/')
 
 def process_create_comment(request, *args, **kwargs):
@@ -27,7 +28,7 @@ def process_create_comment(request, *args, **kwargs):
 	return HttpResponseRedirect('/')
 
 def vote(request, *args, **kwargs):
-	if request.METHOD=='POST' and request.is_ajax():
+	if request.method == 'POST' and request.is_ajax():
 		user = request.user
 		pk = request.POST['post_pk']		
 		vote_value = request.POST['vote_value']

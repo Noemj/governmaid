@@ -5,6 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+
     url(r'^$', 'governmaid.views.home', {'template':'landing.html'}),
     url(r'^hello/$', 'governmaid.views.hello', {'template':'hello.html'}),
     url(r'^login/$', 'governmaid.views.login', {'template':'login.html'}),
@@ -18,6 +19,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
+
     url(r'^admin/', include(admin.site.urls)),
     url(r'^city/$', 'governmaid.views.home', {'template':'posts_for_town.html'}),
 )
