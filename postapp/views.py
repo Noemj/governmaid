@@ -27,7 +27,7 @@ def process_create_comment(request, *args, **kwargs):
 	return HttpResponseRedirect('/')
 
 def vote(request, *args, **kwargs):
-	if request.METHOD=='POST' and request.is_ajax():
+	if request.method == 'POST' and request.is_ajax():
 		user = request.user
 		pk = request.POST['post_pk']		
 		vote_value = request.POST['vote_value']

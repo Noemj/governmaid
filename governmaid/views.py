@@ -18,12 +18,9 @@ def logout(request):
 	return HttpResponseRedirect('/')
 
 def login(request, **kwargs):
-	
-
-
 	if request.user.is_authenticated():
 		return HttpResponseRedirect('/hello/')
-	if request.METHOD=="POST":
+	if request.method == "POST":
 		username=request.POST['username']
 		password=request.POST['password']
 		user = auth.authenticate(username=username, password=password)
