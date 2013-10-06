@@ -38,24 +38,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
   <link rel="shortcut icon" href="../assets/ico/favicon.png">
-  <script>
-  $("#upvote").click(function(){
-    $.ajax({
-        type: "POST",
-        url: '/post/vote/',  // or just url: "/my-url/path/"
-        data: {
-            csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
-            vote_status: 1,
-            post_pk: $("#pk_div_{{num}}").val(),
-        },
-        success: function(response) {
-            $(".compose-msg").fadeOut(500, function() {
-              $(this).html("<div class='span6 offset6 text-center' style='font-size:large;color:lightblue;'>"+response+"</div>").fadeIn(500);
-              });
-        }
-    });
-  });
-  </script>
+  
 
   {% endblock %}
 
@@ -106,6 +89,42 @@
 			<br>
 			<br>
 
+
+<!--SCRIPT-->
+<script>
+  $("#upvote").click(function(){
+    $.ajax({
+        type: "POST",
+        url: '/post/vote/',  // or just url: "/my-url/path/"
+        data: {
+            csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
+            vote_status: 1,
+            post_pk: parseInt($(this).attr('pk')),
+        },
+        success: function(response) {
+            alert('Success!');
+        }
+    });
+  });
+
+  $("#downvote").click(function(){
+    $.ajax({
+        type: "POST",
+        url: '/post/vote/',  // or just url: "/my-url/path/"
+        data: {
+            csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
+            vote_status: -1,
+            post_pk: parseInt($(this).attr('pk')),
+        },
+        success: function(response) {
+            alert('Success!');
+        }
+    });
+  });
+  </script>
+
+
+  <!--CODE-->
       	<div class="row-fluid">
       		<div class="span1 offset3">
       			<center>

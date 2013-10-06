@@ -4,9 +4,15 @@ from django.contrib.auth import REDIRECT_FIELD_NAME, authenticate
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect, get_object_or_404
+from postapp import Post
 
 
 def home(request, *args, **kwargs):
+	return render(request, kwargs['template'],{'extension':'template.html'})
+
+def city(request, *args, **kwargs):
+	posts_time = Post.objects.order_by('score')
+
 	return render(request, kwargs['template'],{'extension':'template.html'})
 
 @login_required
