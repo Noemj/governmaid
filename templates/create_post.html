@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'template.html' %}
 {% block head %}
     <meta charset="utf-8">
@@ -143,3 +144,12 @@
     
 
   {% endblock %}
+=======
+			<form action="/process_create_post/" method="post">
+              {% csrf_token %}
+              <input class="span2" type="text" name="title" id="title" placeholder="Title">
+              <input class="span2" type="text" name="content" id="content" placeholder="Write your idea here">
+              <button type="submit" class="btn">Create post</button>
+              <input type="hidden" name="city" value="test" />
+            </form>
+>>>>>>> cac75e99a1ff4aed54edd67a7ce0fc4f336af6f6

@@ -1,11 +1,11 @@
 {% extends 'template.html' %}
 {% block head %}
-
     <meta charset="utf-8">
     <title>Template &middot; Bootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Eric Ruleman">
+
 
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
@@ -22,20 +22,6 @@
       }
       .container-narrow > hr {
         margin: 30px 0;
-      }
-
-      /* Main marketing message and sign up button */
-      .jumbotron {
-        margin: 60px 0;
-        text-align: center;
-      }
-      .jumbotron h1 {
-        font-size: 72px;
-        line-height: 1;
-      }
-      .jumbotron .btn {
-        font-size: 21px;
-        padding: 14px 24px;
       }
 
     </style>
@@ -56,67 +42,61 @@
 
   {% block body %}
   {% include "navbar_login.html" %}
+          <div class="row-fluid" style="margin-top:80px">
+          <div class="span1 offset3">
+            <center>
+            {% load staticfiles %}
+            <br>
+            <img id="upvote" src="{% static 'img/blueUpArrow.png' %}" alt="Blue Up Arrow" width="50%" height="50%" style="display: block; margin-left:auto; margin-right:auto;" pk="{{ post.pk }}"/>
+            SCORE<br>
+            <img id="downvote" src="{% static 'img/blueDownArrow.png' %}" alt="Blue Down Arrow" width="50%" height="50%" style="display: block; margin-left:auto; margin-right:auto;" pk="{{ post.pk }}"/><br>
 
-      <div class="jumbotron">
-       <div id="main-page" >
-          <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-      </ol><!-- class of slide for animation -->
-  
+            </center>
+          </div>
+          <div class="span5">
+          <span style="color:gray">Posted on November 13, 1993</span>
 
-    <div class="item active"><!-- class of active since it's the first item -->
-      <img src="http://upload.wikimedia.org/wikipedia/commons/a/af/Boston_Skyline_Panorama_Dusk.jpg" alt="" />
-      <div class="Boston">
+          <p style="font-size:x-large;color:DarkBlue !important;"><a style="color: DarkBlue !important;" href='/post/{{post.pk}}'>
+            <strong>Blind Corner on 54th Street</strong></a></p>
+          My kid almost got ran over while playing kickball. He was with Jimmy and Bobby, and then all the sudden a big SUV swarmed my poor little big boy! We must put a mirror up on this corner immediately!<br>
+          <p align="right">by <strong>Eric Ruleman</strong></p>
+          <span style="color:gray">4 Comments</span>
+          <br>
+          <hr>
+          </div>
+        </div>
+
+          <div class="row-fluid">
+          <div class="span5 offset4">
+          <span style="color:gray">Posted on November 13, 1993</span><br><br>
+          Yes I agree! This is a hazard that is despicable!<br>
+          <p align="right">by <strong>Eric Ruleman</strong></p>
+          <hr>
+          </div>
+        </div>
+
+          <div class="row-fluid">
+          <div class="span5 offset4">
+          <span style="color:gray">Posted on November 13, 1993</span><br><br>
+          Yes I agree! This is a hazard that is despicable!<br>
+          <p align="right">by <strong>Eric Ruleman</strong></p>
+          <hr>
+          </div>
+          </div>
+
+
+
+        <!--- Yo this should work when there are actually posts to view! -->
+        {% for post in posts %}
+        Posted on {{post.date}}<br>
+        <p class="lead">{{post.content}}</p><br>
+        by {{post.user.first}} {{post.user.last}}<br>
+        {% endfor %}
+      </center>
       </div>
-    </div>
+  </div>
 
-       </div>
-        <h1><center>Welcome to GovernMaid!</center></h1>   
-       <center>
-        
-        <br>
-        <br>
-         <!-- Get the city Source -->
-        <a href="#" class="btn btn-primary btn-large">Get Started<br></a>
-       
-       <br>
-       <br>
-       <br>
-       <br>
-       <br>
-       <br>
-       <br>
-       <br>
-       <div id ="anchor"><div class="row">
-  <div class="span3 offset3">Welcome to the<br>page</div>
-  <div class="span3 offset3">Welcome to the<br>page</div>
-</div>
-       <br>
-       <br>
-<div class="row">
-  <div class="span3 offset3">Welcome to the<br>page</div>
-  <div class="span3 offset3">Welcome to the<br>page</div>
-</div>
-       <br>
-       <br>
-<div class="row">
-  <div class="span3 offset3">Welcome to the<br>page</div>
-  <div class="span3 offset3">Welcome to the<br>page</div>
-</div>
-       </div>
-       <br>
-       <br>
-       <br>
-       <br>
-       <a href="#" class="btn btn-primary btn-large">Sign Up!<br></a>
-</center>
-     <div class="navbar navbar-fixed-bottom" align="right"> <p class="muted credit">GovernAid</p></div>
-
-    </div> <!-- /container -->
-
-
-
-    <!-- Le javascript
+      <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     
@@ -149,6 +129,5 @@
     }
   });
 });</script>
-    
 
   {% endblock %}
