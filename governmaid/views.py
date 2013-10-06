@@ -27,4 +27,3 @@ def login(request, **kwargs):
 		return HttpResponseRedirect('/hello')
 	else:
 		return render(request, kwargs['template'],{'extension':'template.html'})
-		
