@@ -7,6 +7,8 @@ from django.contrib import admin
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'governmaid.views.home', {'template':'open.html'}),
+    url(r'^landing$', 'governmaid.views.home', {'template':'landing.html'}),
+    url(r'^landing$', 'governmaid.views.home', {'template':'landing.html.#anchor'}),
     #url(r'^governmaid/', include('governmaid.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
