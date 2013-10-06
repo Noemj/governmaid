@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from PIL import Image
 
 def file_name(instance, filename):
-    return instance.pk+"/profile/"+year+"/"+month+"/"+day+"/"+hour+"/"+minute+"/"+second+"/profile.jpg"
+    return 'postpics/'+instance.pk+"profile.jpg"
 
 class Post(models.Model):
 	city = models.ForeignKey('cityapp.City',related_name='posts')
