@@ -15,6 +15,10 @@ def city(request, *args, **kwargs):
 
 	return render(request, kwargs['template'],{'extension':'template.html'})
 
+def city(request, *args, **kwargs):
+	posts = Post.objects.order_by('score')[:10]
+	return render(request, kwargs['template'],{'extension':'template.html'})
+
 @login_required
 def hello(request, **kwargs):
 	return HttpResponse("Welcome, "+request.user.username+"!<br /><a href='/logout'>Logout</a>")
@@ -32,5 +36,6 @@ def login(request, **kwargs):
 		user = auth.authenticate(username=username, password=password)
 		auth.login(request, user)
 		return HttpResponseRedirect('/hello/')
+		cities= City.objects.()
 	else:
 		return render(request, kwargs['template'],{'extension':'template.html'})
