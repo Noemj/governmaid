@@ -1,4 +1,3 @@
-# Create your views here.
 from postapp.forms import PostForm
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
