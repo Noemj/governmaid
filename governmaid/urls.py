@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-# admin.autodiscover()
+admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^hello/$', 'governmaid.views.hello', {'template':'hello.html'}),
     url(r'^login/$', 'governmaid.views.login', {'template':'login.html'}),
     url(r'^logout/$', 'governmaid.views.logout'),
+    url(r'^process_create_post/$', 'postapp.views.process_create_post'),
 
     #url(r'^governmaid/', include('governmaid.foo.urls')),
 
