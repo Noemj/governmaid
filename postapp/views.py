@@ -1,9 +1,8 @@
-from postapp.forms import PostForm
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
-from django.http import HttpResponse, Http404
-from postapp.models import Post
-from postapp.models import Vote
+from django.http import HttpResponseRedirect, HttpResponse, Http404
+from django.shortcuts import render, redirect, get_object_or_404
+from postapp.models import Post, Vote
+from cityapp.models import City
 
 def create_post(request, *args, **kwargs):
 	return render(request, 'create_post.html',{'extension':'template.html'})
@@ -13,19 +12,23 @@ def create_comment(request, *args, **kwargs):
 
 def process_create_post(request, *args, **kwargs):
 	if request.method == 'POST':
-		city = City.get_object(name=request.POST['city'])
+		city = City.objects.get(name=request.POST['city'])
     	post = Post(content=request.POST['content'],user=request.user,city=request.POST['city'],picture=request.FILES['picture'])
     	post.save()
+<<<<<<< HEAD
 		return render(request, 'post.html',{'post':post})
+=======
+    	return render(request, 'post.html',{'post':post})
+>>>>>>> 8bca2c05c00ddcf75072e1d6223784afcfc9adab
 	return HttpResponseRedirect('/')
 
 def process_create_comment(request, *args, **kwargs):
 	if request.method == 'POST':
-		post = Post.get_object(name=request.POST['post'])
+		post = Post.objects.get(name=request.POST['post'])
     	comment = Comment(post=post, content=request.POST['content'])
     	comment.save()
     	return render(request, 'post.html',{'post':post})
-    return HttpResponseRedirect('/')
+	return HttpResponseRedirect('/')
 
 def vote(request, *args, **kwargs):
 	if request.METHOD=='POST' and request.is_ajax():

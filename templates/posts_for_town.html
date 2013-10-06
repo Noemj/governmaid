@@ -24,46 +24,6 @@
         margin: 30px 0;
       }
 
-      /* Main marketing message and sign up button */
-      .jumbotron {
-        margin: 60px 0;
-        text-align: center;
-      }
-      .jumbotron h1 {
-        font-size: 72px;
-        line-height: 1;
-      }
-      .jumbotron .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-      }
-
-      /* Supporting marketing content */
-      .marketing {
-        margin: 60px 0;
-      }
-      .marketing p + h4 {
-        margin-top: 28px;
-      }
-
-	  .Absolute-Center {
-  		margin: auto;
-  		position: absolute;
-  		top: 0; left: 0; bottom: 0; right: 0;
-	  }
- 
-	   .Container{
-	    position: absolute;
-  		width:300px;
-  		height: 300px;
-  		background-color:#445;
-  		color: #CCC;
-  		font-family: "Verdana" Sans-Serif;
-  		font-size: 14pt;
-  		border:solid 2px #222;
-  		border-radius:5px; 
-	  }
-
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -81,18 +41,8 @@
   {% endblock %}
 
   {% block body %}
-
-  	<div class="container-narrow">
-  		<div class="masthead">
-        	<ul class="nav nav-pills pull-right">
-          	<li class="active"><a href="#">Home</a></li>
-          	<li><a href="#">About</a></li>
-          	<li><a href="#">Contact</a></li>
-        	</ul>
-        	<h3 class="muted">Project name</h3>
-      	</div>
-
-      	<hr>
+  {% include "navbar_login.html" %}
+  <hr>
       		<div>
         		<center>
         			<h1>Ideas for {{post.city}}</h1>
@@ -110,6 +60,8 @@
   			<li>Most Liked</li>
   			</ul>
 			</div>
+
+			&nbsp; &nbsp; &nbsp; &nbsp;
 
 			<div class="btn-group">
   			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -157,5 +109,39 @@
       </center>
       </div>
   </div>
+
+      <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+    <script>$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+        || location.hostname == this.hostname) {
+
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});</script>
 
   {% endblock %}
