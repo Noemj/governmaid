@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url(r'^hello/$', 'governmaid.views.hello', {'template':'hello.html'}),
     url(r'^login/$', 'governmaid.views.login', {'template':'login.html'}),
     url(r'^logout/$', 'governmaid.views.logout'),
-    url(r'^process_create/$', 'postapp.views.process_create'),
+    url(r'^process_create_post/$', 'postapp.views.process_create_post'),
 
     #url(r'^governmaid/', include('governmaid.foo.urls')),
 

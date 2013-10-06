@@ -5,15 +5,25 @@ from django.http import HttpResponse, Http404
 from postapp.models import Post
 from postapp.models import Vote
 
-def create(request, *args, **kwargs):
+def create_post(request, *args, **kwargs):
 	return render(request, 'create_post.html',{'extension':'template.html'})
 
+def create_comment(request, *args, **kwargs):
+	return render(request, 'create_comment.html', {'extension':'template.html'})
 
-def process_create(request, *args, **kwargs):
+def process_create_post(request, *args, **kwargs):
 	if request.method == 'POST':
 		city = City.get_object(name=request.POST['city'])
     	post = Post(content=request.POST['content'],user=request.user,city=request.POST['city'],picture=request.FILES['picture'])
     	post.save()
+    	return render(request, 'post.html',{'post':post})
+    return HttpResponseRedirect('/')
+
+def process_create_comment(request, *args, **kwargs):
+	if request.method == 'POST':
+		post = Post.get_object(name=request.POST['post'])
+    	comment = Comment(post=post, content=request.POST['content'])
+    	comment.save()
     	return render(request, 'post.html',{'post':post})
     return HttpResponseRedirect('/')
 
