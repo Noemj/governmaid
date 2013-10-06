@@ -8,9 +8,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">GovernMaid</a>
+          <a class="brand" href="#">Agora</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
+                        {% load staticfiles %}
+              <li><img style="display:inline;"src="{% static 'img/greek_column4.png' %}" alt="Greek Column"/></li>
               <li><a href="http://troll.gg/">About</a></li>
             </ul>
             <form class="navbar-form pull-right" action="/login/" method="post">

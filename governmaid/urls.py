@@ -21,7 +21,11 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
 
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^post/(?P<pk>)[0-9]+$', 'governmaid.views.home', {'template':'post_thread.html'}),
+
     url(r'^city/$', 'governmaid.views.city', {'template':'posts_for_town.html'}),
     url(r'^city/(?P<pk>)[0-9]+$', 'governmaid.views.all_posts', {'template':'real_posts_for_town.html'}),
+
 
 )
